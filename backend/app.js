@@ -15,13 +15,17 @@ require("dotenv").config();
 require("./conn/conn");
 const User = require("./routes/user");
 const Books = require("./routes/book");
-const Favorites = require("./routes/favorites");
+const Wishlists = require("./routes/wishlists");
+const Cart = require("./routes/cart");
+const Orders = require("./routes/order");
 app.use(express.json());
 
 //Routes
 app.use("/api/v1", User);
 app.use("/api/v1", Books);
-app.use("/api/v1", Favorites);
+app.use("/api/v1", Wishlists);
+app.use("/api/v1", Cart);
+app.use("/api/v1", Orders);
 
 //Creating Port
 app.listen(process.env.PORT, () => {

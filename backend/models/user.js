@@ -24,29 +24,30 @@ const user = new mongoose.Schema({
         default: "user",
         enum: ["user", "admin"],
     },
-    cart: {
+    cart: [
+        {
         type: mongoose.Types.ObjectId,
         ref: "books",
-    },
-    orders: {
+        }
+    ],
+    orders: [
+        {
         type: mongoose.Types.ObjectId,
         ref: "order",
-    },
-    
-
-
-    /*  Refer to the diagrams for better understanding of the requirements
+        },
+    ],
+    //Refer to the diagrams for better understanding of the requirements
     address: {
         type: String, 
         required: true,
     },
-    favorites: [
+    wishlists: [
         { 
             type: mongoose.Types.ObjectId,
             ref: "books",
         },
     ],
-    */
+
   }, 
   { timestamps: true }
 );
