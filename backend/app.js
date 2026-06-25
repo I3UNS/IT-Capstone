@@ -10,14 +10,18 @@
 */
 
 const express = require("express");
+const cors = require("cors");
 const app = express();
 require("dotenv").config();
 require("./conn/conn");
+
 const User = require("./routes/user");
 const Books = require("./routes/book");
 const Wishlists = require("./routes/wishlists");
 const Cart = require("./routes/cart");
 const Orders = require("./routes/order");
+
+app.use(cors());
 app.use(express.json());
 
 //Routes
