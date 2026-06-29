@@ -8,7 +8,7 @@ const Loader = () => {
         aria-hidden="true" 
         class="w-8 h-8 text-neutral-tertiary animate-spin fill-brand" 
         viewBox="0 0 100 101" 
-        fill="none" 
+        fill="green" 
         xmlns="http://www.w3.org/2000/svg"
     >
         <path 

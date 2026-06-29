@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Links } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
 
@@ -28,6 +29,11 @@ const Navbar = () => {
         
     ];
 
+    const isUserLoggedIn = useSelector((state) => state.auth.isLoggedIn );
+    if(isUserLoggedIn === false){
+        links.splice(3,2);
+    }
+    
     const [MobileNav, setMobileNav] = useState("hidden");
 
     return (
@@ -46,28 +52,45 @@ const Navbar = () => {
             <div className="block md:flex gap-4 items-center nav-links-bookbazaar">
                 <div className="hidden md:flex gap-4">
                     { links.map(( items, i ) => (
-                        <Link to={items.link}
-                            className="hover:text-blue-500 transition-all duration-300" 
-                            key = {i}
+                        <div className="flex items-center justify-center">
+                            {items.title === "Profile" ? (
+                                <Link 
+                                    to={items.link}
+                                    className="px-4 py-1 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300" 
+                                    key = {i}
+                                >
+                                    {items.title}{" "} 
+                                </Link>
+                        ) : (
+                                <Link 
+                                    to={items.link}
+                                    className="hover:text-blue-500 transition-all duration-300" 
+                                    key = {i}
+                                >
+                                    {items.title}{" "} 
+                                </Link>
+                        )}
+                        </div>
+                    ))}
+                </div>
+                {isUserLoggedIn === false && (
+                    <>
+                    <div className="hidden md:flex gap-4">
+                        <Link 
+                            to="/login" 
+                            className="px-4 py-1 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
                         >
-                            {items.title}{" "} 
+                            Login
                         </Link>
-                        ))}
-                </div>
-                <div className="hidden md:flex gap-4">
-                    <Link 
-                        to="/login" 
-                        className="px-4 py-1 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
-                    >
-                        Login
-                    </Link>
-                    <Link
-                        to="/signup" 
-                        className="px-4 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
-                    >
-                        Sign Up
-                    </Link>
-                </div>
+                        <Link
+                            to="/signup" 
+                            className="px-4 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
+                        >
+                            Sign Up
+                        </Link>
+                    </div>
+                    </>
+                )}
                 <button 
                     className="block md:hidden text-white text-2xl hover:text-zinc-400" 
                     onClick={() => 
@@ -90,6 +113,8 @@ const Navbar = () => {
                             {items.title}{" "} 
                         </Link>
                         ))}
+                    {isUserLoggedIn === false && (
+                    <>
                     <Link 
                         to="/login" 
                         className="px-4 mb-8 py-2 text-white text-3xl font-semibold border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
@@ -102,6 +127,8 @@ const Navbar = () => {
                     >
                         Sign Up
                     </Link>
+                    </>
+                )}
             </div>
         </>
     );

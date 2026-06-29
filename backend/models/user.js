@@ -37,10 +37,10 @@ const user = new mongoose.Schema({
         },
     ],
     //Refer to the diagrams for better understanding of the requirements
-    address: {
-        type: String, 
-        required: true,
-    },
+    // address: {
+    //     type: String, 
+    //     required: true,
+    // },
     wishlists: [
         { 
             type: mongoose.Types.ObjectId,

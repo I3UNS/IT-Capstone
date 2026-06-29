@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const BookCard = ({data}) => {
   return (
     <>
-        <Link>
+        <Link to={`/book-details/${data._id}`}>
             <div className='bg-zinc-800 rounded p-4 flex flex-col text-white'>
                 <div className='rounded flex items-center justify-center'>
                     <img src={data.url} alt="/" className='h-[25vh] border-b-6 border-l-4 rounded border-emerald-600'/>

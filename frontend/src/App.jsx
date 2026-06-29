@@ -1,5 +1,5 @@
-import React from "react";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
@@ -9,11 +9,28 @@ import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import BookDetails from "./components/BookDetails/BookDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "./store/auth";
 
 const App = () => {
+
+  const dispatch = useDispatch();
+  const role = useSelector((state) => state.auth.role);
+
+  useEffect(() => {
+    if(
+      localStorage.getItem("id") &&
+      localStorage.getItem("role") &&
+      localStorage.getItem("token")
+    ){
+      dispatch(authActions.login());
+      dispatch(authActions.changeRole(localStorage.getItem("role")));
+    }
+  }, []);
+
   return (
   <div>
-    <Router>
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -23,9 +40,9 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/book-details/:id" element={<BookDetails />} />
       </Routes>
       <Footer />
-    </Router>
   </div>
   );
 };

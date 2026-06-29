@@ -84,12 +84,14 @@ router.get("/get-recent-books", async (req, res) => {
 //Find book by ID
 router.get("/get-book-by-id/:id", async (req, res) => {
     try {
-        const { id } = req.headers;
+        const { id } = req.params;               
         const book = await Book.findById(id);
-        return res.status(200).json({
+        console.log(id, book);
+        return res.json({
             status: "Success",
             data: book,
         });
+
     } catch (error) {
         return res.status(500).json({ message: "An error has occurred" });
     }
