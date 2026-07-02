@@ -12,6 +12,11 @@ import SignUp from "./pages/SignUp";
 import BookDetails from "./components/BookDetails/BookDetails";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "./store/auth";
+import Wishlists from "./components/Profile/Wishlists";
+import OrderHistory from "./components/Profile/OrderHistory";
+import Settings from "./components/Profile/Settings";
+import Orders from "./pages/Orders";
+import AddBook from "./pages/AddBook";
 
 const App = () => {
 
@@ -37,7 +42,18 @@ const App = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/books" element={<Books />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} > 
+          {role === "user" ? ( 
+            <Route index element={<Wishlists />}/> 
+          ) : ( 
+            <Route index element={<Orders />}/> 
+          )}
+          {role === "admin" && (
+            <Route path="/profile/add-book" element={<AddBook />}/>
+          )}
+          <Route path="/profile/orderHistory" element={<OrderHistory />}/>
+          <Route path="/profile/settings" element={<Settings />}/>
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/book-details/:id" element={<BookDetails />} />
