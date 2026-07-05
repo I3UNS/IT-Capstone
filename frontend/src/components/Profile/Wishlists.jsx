@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import BookCard from '../BookCard/BookCard'
+import Loader from '../Loader/Loader'
 
 const Wishlists = () => {
 
@@ -25,6 +26,11 @@ const Wishlists = () => {
   
   return (
     <>
+      {!WishlistBook && (
+        <div className='w-full h-[100%] flex items-center justify-center'>
+          <Loader />
+        </div>
+      )}
         {WishlistBook && WishlistBook.length === 0 && 
           <div className='text-5xl font-semibold h-[50%] text-zinc-400 flex items-center justify-center w-full'>
             Your wishlist will show up here

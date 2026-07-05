@@ -61,7 +61,7 @@ const Cart = () => {
     
   
   return (
-    <div className='bg-zinc-900 px-12 py-8 h-[100%]'>
+    <div className='bg-zinc-900 px-12 py-8 h-screen'>
       {!Cart && (
         <div className='w-full h-[100%] flex items-center justify-center'>
           <Loader />
@@ -77,7 +77,7 @@ const Cart = () => {
         </div>
       )}
       {Cart && Cart.length > 0 && (
-        <div className='bg-zinc-900 p-4 h-[100%]'>
+        <div className='bg-zinc-900 p-4'>
           <h1 className='text-5xl font-semibold text-zinc-500 mb-8'>
             Your Cart
           </h1>

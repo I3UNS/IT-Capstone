@@ -49,16 +49,16 @@ const BookDetails = () => {
   return (
     <>
         {Book && (
-            <div className='px-6 md:px-12 py-8 bg-zinc-900 flex flex-col md:flex-row items-center justify-center gap-8'>
+            <div className='px-6 h-screen md:px-12 py-8 bg-zinc-900 flex flex-col md:flex-row items-center justify-center gap-8'>
                 <div className='w-full lg:w-[30%]'>
-                  <div className='bg-zinc-800 p-12 rounded flex items-center justify-around'>
+                  <div className='bg-zinc-800 p-12 rounded gap-16 flex items-center justify-around'>
                     <img 
                       src={Book.url} 
                       alt="/" 
-                      className='h-[50vh] lg:h-[70vh] rounded'
+                      className='h-[30vh] lg:h-[50vh] rounded'
                     />
                     {isUserLoggedIn === true && role ==="user" && (
-                      <div className='flex flex-col gap-4 mb-[40%]'>
+                      <div className='flex flex-col gap-4 mb-[100%]'>
                         <button 
                           className='bg-white rounded-full text-3xl p-4 hover:text-green-600'
                           onClick={handleWishlist}
@@ -75,7 +75,7 @@ const BookDetails = () => {
                     )}
 
                     {isUserLoggedIn === true && role ==="admin" && (
-                      <div className='flex flex-col gap-4 mb-[40%]'>
+                      <div className='flex flex-col gap-4 mb-[100%]'>
                         <button className='bg-white rounded-full text-3xl p-4 hover:text-green-600'>
                           <FaRegEdit />
                         </button>
@@ -87,7 +87,7 @@ const BookDetails = () => {
                   </div>
                 </div>
                 
-                <div className='p-4 w-full lg:w-3/6'>
+                <div className='p-4 w-full lg:w-3/6 ms-[7%]'>
                     <h1 className='text-4xl text-zinc-300 font-semibold'>{Book.title}</h1>
                     <p className='text-zinc-400 mt-1'>by {Book.author}</p>
                     <p className='text-zinc-500 mt-4 text-xl'>{Book.desc}</p>

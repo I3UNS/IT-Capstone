@@ -34,7 +34,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className='h-auto bg-zinc-900 px-12 py-8 flex flex-col items-center justify-center'>
+    <div className='h-screen bg-zinc-900 px-12 py-8 flex flex-col items-center justify-center'>
       <div className='bg-zinc-800 rounded-lg px-8 py-5 w-full md:w-3/6 lg:w-2/6'>
         <div className='mt-4'>
           <div>

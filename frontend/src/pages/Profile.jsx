@@ -27,7 +27,7 @@ const Profile = () => {
   }, [])
   
   return (
-    <div className='bg-zinc-900 px-2 md:px-12 py-8 flex flex-col md:flex-row gap-4 w-full h-[100%] text-white'>
+    <div className='bg-zinc-900 px-2 md:px-12 py-8 flex flex-col md:flex-row gap-4 w-full h-screen text-white'>
       {!Profile && (
         <div className='w-full h-[100%] flex items-center justify-center'>
           <Loader />
