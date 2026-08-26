@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Loader from '../components/Loader/Loader'
 import BookCard from '../components/BookCard/BookCard'
+import SearchBar from '../components/SearchBar/SearchBar'
 
 const Books = () => {
   const [Book, setBook] = useState();
@@ -17,7 +18,10 @@ const Books = () => {
   
   return (
     <div className='bg-zinc-900 h-screen px-12 py-8'>
-      <h4 className='text-3xl text-yellow-100'>Books</h4>
+      <div className='text-yellow-100 gap-10 flex'>
+        <h4 className='mt-2 text-3xl'>Books</h4>
+        <div><SearchBar /></div>
+      </div>
         {!Book && (
           <div className='flex items-center justify-center my-8 invert'>
             <Loader />{" "}
