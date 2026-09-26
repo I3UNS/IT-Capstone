@@ -25,15 +25,18 @@ const SearchBar = () => {
     setSearchBook(searchItem)
 
     const bookIDandTitle = bookDetail.map(book => [book._id, book.title]);
-    // const bookID = bookDetail.map(book => book._id);
 
-    const filteredItems = bookIDandTitle.filter(book =>
+    const filteredItems = bookIDandTitle.filter(bookTitle =>
     {
-      book.toLowerCase().includes(searchItem.toLowerCase())
-      console.log(book)
+      const regex = searchItem.toLowerCase();
+      return bookTitle[1].match(regex);
+
+      // if(bookTitle[1].match(regex)){
+      //   //2D array ==> bookTitle[0][1]; If match, get 1st index and set the bookId
+      //   console.log(bookTitle[1], bookIDandTitle.includes(bookTitle[1]));
+      // }      
     });
 
-    // setBookId(bookID);
     setFilteredBooks(filteredItems);
   }
 
@@ -49,7 +52,6 @@ const SearchBar = () => {
         <ul className='text-gray-600 px-2 text-lg'>
           {filteredBooks.map(filteredBook => 
 
-          // bookId is an array. Separate it to get the correct ID
             <Link to={`/book-details/${bookId}`}>
               <li>{filteredBook}</li>
             </Link>
