@@ -22,22 +22,24 @@ const SearchBar = () => {
 
   const handleInputChange = (e) => {
     const searchItem = e.target.value;
+    const regex = searchItem.toLowerCase();
+    
     setSearchBook(searchItem)
 
     const bookIDandTitle = bookDetail.map(book => [book._id, book.title]);
 
     const filteredItems = bookIDandTitle.filter(bookTitle =>
     {
-      const regex = searchItem.toLowerCase();
-      return bookTitle[1].match(regex);
-
-      // if(bookTitle[1].match(regex)){
-      //   //2D array ==> bookTitle[0][1]; If match, get 1st index and set the bookId
-      //   console.log(bookTitle[1], bookIDandTitle.includes(bookTitle[1]));
-      // }      
+      if (bookTitle[1].match(regex)){
+        return (bookTitle[1]);
+      }  
     });
 
-    setFilteredBooks(filteredItems);
+    const filteredID = filteredItems.map(item => item[0]);
+    console.log("ID: " + filteredID);
+    setBookId(filteredID);
+    
+    setFilteredBooks(filteredItems);    
   }
 
     return (
@@ -53,7 +55,7 @@ const SearchBar = () => {
           {filteredBooks.map(filteredBook => 
 
             <Link to={`/book-details/${bookId}`}>
-              <li>{filteredBook}</li>
+              <li>{filteredBook[1]}</li>
             </Link>
           )}
         </ul>
