@@ -27,6 +27,7 @@ const Books = () => {
             <Loader />{" "}
           </div>
         )}
+        {/* Input a div container with flex here. It will contain both filter and books within this div */}
         <div className='my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4'>
           {Book && Book.map(
             ( items, i ) => 

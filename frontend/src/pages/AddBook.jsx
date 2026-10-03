@@ -100,6 +100,20 @@ const AddBook = () => {
             </div>
             <div>
                 <label htmlFor="" className='text-zinc-400'>
+                    Genre
+                </label>
+                <input 
+                    type="text"
+                    className='w-full mb-6 bg-zinc-900 text-zinc-100 p-2 outline-none' 
+                    placeholder='Genre of the book'
+                    name="genre" 
+                    required
+                    value={Book.genre} 
+                    onChange={change}
+                />
+            </div>
+            <div>
+                <label htmlFor="" className='text-zinc-400'>
                     Price
                 </label>
                 <input 

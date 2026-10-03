@@ -46,6 +46,15 @@ const BookDetails = () => {
     alert(response.data.message);
   };
 
+  // const handleEdit = async () => {
+  //   const response = await axios.get(
+  //     "http://localhost:3000/api/v1/add-book",
+  //     {},
+  //     { headers }
+  //   )
+  //   alert(response.data.message);
+  // };
+
   return (
     <>
         {Book && (
@@ -76,7 +85,10 @@ const BookDetails = () => {
 
                     {isUserLoggedIn === true && role ==="admin" && (
                       <div className='flex flex-col gap-4 mb-[100%]'>
-                        <button className='bg-white rounded-full text-3xl p-4 hover:text-green-600'>
+                        <button 
+                          className='bg-white rounded-full text-3xl p-4 hover:text-green-600'
+                          // onClick={ handleEdit }
+                        >
                           <FaRegEdit />
                         </button>
                         <button className='group bg-white rounded-full text-3xl p-4 hover:text-green-600 mt-4'>
