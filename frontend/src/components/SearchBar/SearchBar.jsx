@@ -6,7 +6,6 @@ const SearchBar = () => {
   const [searchBook, setSearchBook] = useState('')
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [bookDetail, setBookDetail] = useState([]);
-  const [bookId, setBookId] = useState([]);
 
   useEffect(() => {
     const fetch = async() => {
@@ -34,10 +33,6 @@ const SearchBar = () => {
         return (bookTitle[1]);
       }  
     });
-
-    const filteredID = filteredItems.map(item => item[0]);
-    console.log("ID: " + filteredID);
-    setBookId(filteredID);
     
     setFilteredBooks(filteredItems);    
   }
@@ -54,7 +49,7 @@ const SearchBar = () => {
         <ul className='text-gray-600 px-2 text-lg'>
           {filteredBooks.map(filteredBook => 
 
-            <Link to={`/book-details/${bookId}`}>
+            <Link to={`/book-details/${filteredBook[0]}`}>
               <li>{filteredBook[1]}</li>
             </Link>
           )}
