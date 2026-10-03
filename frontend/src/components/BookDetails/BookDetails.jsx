@@ -102,6 +102,7 @@ const BookDetails = () => {
                 <div className='p-4 w-full lg:w-3/6 ms-[7%]'>
                     <h1 className='text-4xl text-zinc-300 font-semibold'>{Book.title}</h1>
                     <p className='text-zinc-400 mt-1'>by {Book.author}</p>
+                    <p className='text-zinc-400 mt-1'>Genre: {JSON.stringify(Book.genre).replace(/[\[\],"]/g, " - ")}</p>
                     <p className='text-zinc-500 mt-4 text-xl'>{Book.desc}</p>
                     <p className='text-zinc-100 mt-4 text-3xl font-semibold'>${Book.price}</p>
                 </div>
