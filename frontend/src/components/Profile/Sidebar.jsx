@@ -59,7 +59,7 @@ const Sidebar = ({ data }) => {
         {role === "admin" && (
             <div className='w-full flex flex-col items-center justify-center sm:mt-10 md:mt-6 lg:flex hidden lg:show'>
             <Link
-                to="/profile"
+                to="/profile/orderHistory"
                 className="text-zinc-100 font-semibold w-full py-2 text-center hover:bg-zinc-900 rounded transition-all duration-300"
             >
                 Orders

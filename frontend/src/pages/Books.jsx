@@ -26,7 +26,7 @@ const Books = () => {
             <Loader />{" "}
           </div>
         )}
-        {/* Input a div container with flex here. It will contain both filter and books within this div */}
+
         <div className='text-white flex flex-cols-2 gap-20'>
           <SearchFilter />
 

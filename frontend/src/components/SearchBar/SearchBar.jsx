@@ -38,7 +38,7 @@ const SearchBar = () => {
   }
 
     return (
-    <div className='bg-white p-2 w-100 rounded-xl'>
+    <div className='bg-white p-2 mt-6 w-100 rounded-xl'>
         <input 
             className='text-black text-ls p-2 w-xl rounded-xl'
             type="text"

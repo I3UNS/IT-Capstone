@@ -15,6 +15,7 @@ router.post("/add-book", authenticateToken, async(req, res) => {
         const book = new Book({
             url: req.body.url, 
             title: req.body.title,
+            genre: req.body.genre,
             author: req.body.author,
             price: req.body.price,
             desc: req.body.desc,
@@ -25,6 +26,8 @@ router.post("/add-book", authenticateToken, async(req, res) => {
         res.status(500).json({ message: `Internal server error: ${error}` });
     }
 });
+
+
 //Update book
 router.put("/update-book", authenticateToken, async (req, res) => {
     try {
@@ -36,6 +39,7 @@ router.put("/update-book", authenticateToken, async (req, res) => {
         await Book.findByIdAndUpdate(bookid, {
             url: req.body.url, 
             title: req.body.title,
+            genre: req.body.genre,
             author: req.body.author,
             price: req.body.price,
             desc: req.body.desc,
@@ -57,6 +61,8 @@ router.delete("/delete-book", authenticateToken, async (req, res) => {
         return res.status(500).json({ message: "An error has occurred." });
     }
 });
+
+
 //Show all books
 router.get("/get-all-books", async (req, res) => {
     try {

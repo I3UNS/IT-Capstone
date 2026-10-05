@@ -7,6 +7,7 @@ const AddBook = () => {
         url: "",
         title: "",
         author: "",
+        genre: "",
         price: "",
         desc: "",
     });
@@ -27,6 +28,7 @@ const AddBook = () => {
             Book.url === "" ||
             Book.title === "" ||
             Book.author === "" ||
+            Book.genre === "" ||
             Book.price === "" ||
             Book.desc === ""
         ){
@@ -41,6 +43,7 @@ const AddBook = () => {
                 url: "",
                 title: "",
                 author: "",
+                genre: "",
                 price: "",
                 desc: "",
             });

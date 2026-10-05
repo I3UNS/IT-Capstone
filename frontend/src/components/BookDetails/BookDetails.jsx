@@ -46,14 +46,23 @@ const BookDetails = () => {
     alert(response.data.message);
   };
 
-  // const handleEdit = async () => {
-  //   const response = await axios.get(
-  //     "http://localhost:3000/api/v1/add-book",
-  //     {},
-  //     { headers }
-  //   )
-  //   alert(response.data.message);
-  // };
+  const handleEdit = async () => {
+    const response = await axios.get(
+      "http://localhost:3000/api/v1/update-book",
+      {},
+      { headers }
+    )
+    alert(response.data.message);
+  };
+
+  const handleDelete = async () => {
+    const response = await axios.get(
+      "http://localhost:3000/api/v1/delete-book",
+      {},
+      { headers }
+    )
+    alert(response.data.message);
+  };
 
   return (
     <>
@@ -87,11 +96,14 @@ const BookDetails = () => {
                       <div className='flex flex-col gap-4 mb-[100%]'>
                         <button 
                           className='bg-white rounded-full text-3xl p-4 hover:text-green-600'
-                          // onClick={ handleEdit }
+                          onClick={ handleEdit }
                         >
                           <FaRegEdit />
                         </button>
-                        <button className='group bg-white rounded-full text-3xl p-4 hover:text-green-600 mt-4'>
+                        <button 
+                          className='group bg-white rounded-full text-3xl p-4 hover:text-green-600 mt-4'
+                          onClick={ handleDelete }
+                        >
                           <MdDeleteOutline /> 
                         </button>
                       </div>
